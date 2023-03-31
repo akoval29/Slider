@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 
 import Service from "./components/Service";
-import Spinner from "./components/Spinner";
 import ErrorMSG from "./components/error/errorMSG";
 import Slider from "./components/Slider";
 import Controls from "./components/Controls";
@@ -30,6 +29,16 @@ const SliderApp = () => {
   switch (process) {
     case "axiosError":
       return <ErrorMSG />;
+    case "loading":
+      return (
+        <section className="container">
+          <div className="slider">
+            <div class="slider__spinner">
+              <div class="slider__spinner--spin"></div>
+            </div>
+          </div>
+        </section>
+      );
     case "dataRecieved":
       return (
         <section className="container">
@@ -48,17 +57,8 @@ const SliderApp = () => {
           <Controls handleChange={handleChange} />
         </section>
       );
-
     default:
-      return (
-        <section className="container">
-          <div className="slider">
-            <div className="slider__spinner">
-              <Spinner />
-            </div>
-          </div>
-        </section>
-      );
+      return null;
   }
 };
 
