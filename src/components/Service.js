@@ -1,11 +1,11 @@
 import { useState, useEffect, useCallback } from "react";
 import axios from "axios";
 
-const Servise = () => {
+const Service = () => {
   const [search, setSearch] = useState("bass"); //url
   const [perPage, setPerPage] = useState(10); //url
   const [result, setResult] = useState([]); //recieved data
-  const [process, setProcess] = useState("waiting"); //FSM
+  const [process, setProcess] = useState("loading"); //FSM
 
   // зв'язуєм Formik із controls.js з Аксіос тут
   function handleChange(values) {
@@ -22,7 +22,6 @@ const Servise = () => {
       perPage;
     const access_token =
       "563492ad6f91700001000001ff981c4ab12a4096aa425dfe9d443dd0";
-    setProcess("loading");
 
     axios
       .get(url, { headers: { Authorization: `${access_token}` } })
@@ -56,4 +55,4 @@ const Servise = () => {
   return { result, search, perPage, process, setProcess, handleChange };
 };
 
-export default Servise;
+export default Service;

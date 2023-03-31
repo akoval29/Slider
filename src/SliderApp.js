@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import Servise from "./components/Servise";
+import Service from "./components/Service";
 import Spinner from "./components/Spinner";
 import ErrorMSG from "./components/error/errorMSG";
 import Slider from "./components/Slider";
@@ -10,7 +10,7 @@ import CheckBox from "./components/CheckBox";
 import "../src/style/app.css";
 
 const SliderApp = () => {
-  const { search, perPage, result, handleChange, process } = Servise(); // income form Servise
+  const { result, handleChange, search, perPage, process } = Service(); // income form Service
   const [current, setCurrent] = useState(0); // current slide
 
   //Навігація
@@ -30,7 +30,6 @@ const SliderApp = () => {
   switch (process) {
     case "axiosError":
       return <ErrorMSG />;
-
     case "dataRecieved":
       return (
         <section className="container">
@@ -47,11 +46,9 @@ const SliderApp = () => {
           <CheckBox nextSlide={nextSlide} />
 
           <Controls
-            result={result}
             handleChange={handleChange}
-            search={search}
-            perPage={perPage}
-            ErrorMSG={ErrorMSG}
+            // search={search}
+            // perPage={perPage}
           />
         </section>
       );

@@ -1,6 +1,6 @@
 import { Formik, Form, Field, ErrorMessage } from "formik";
 
-const Controls = ({ result, handleChange, search, perPage }) => {
+const Controls = ({ handleChange, search, perPage }) => {
   return (
     <section className="controls">
       <Formik
@@ -8,9 +8,9 @@ const Controls = ({ result, handleChange, search, perPage }) => {
         validate={(values) => {
           const errors = {};
           if (!values.inputSearch) {
-            errors.inputSearch = "<= type";
+            errors.inputSearch = "<= TYPE";
           } else if (!values.inputAmount) {
-            errors.inputAmount = "type =>";
+            errors.inputAmount = "TYPE =>";
           } else if (!/\d+/.test(values.inputAmount)) {
             errors.inputAmount = "Only digits! =>";
           }
@@ -18,6 +18,8 @@ const Controls = ({ result, handleChange, search, perPage }) => {
         }}
         onSubmit={(values, { setSubmitting }) => {
           handleChange(values);
+          // setSearch(values.inputSearch);
+          // setPerPage(values.inputAmount);
           setSubmitting(false);
         }}
       >
