@@ -1,52 +1,34 @@
-import {useState, useEffect, useRef} from 'react';
+import { useState, useEffect, useRef } from "react";
 
-const CheckBox = ({nextSlide}) => {
-    const interval = useRef(null);                       // Autoplay
-    const timeout = useRef(null);                        // Autoplay
-    const [isChecked, setIsChecked] = useState(false);   // checkBox
-    
-    const onCheckBox = () => {
-        if (isChecked) {
-            interval.current = setInterval(
-                () => nextSlide(), 3000);      
-            timeout.current = setTimeout(() => {
-                clearInterval(interval.current);
-            }, 3000);
-        } else {
-        return undefined
-        }
+let CheckBox = ({ nextSlide }) => {
+  const [isChecked, setIsChecked] = useState(false);
 
-        return () => {
-            clearInterval(interval.current);
-            clearTimeout(timeout.current);
-        }
-    }
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (isChecked) {
+        nextSlide();
+      }
+    }, 2000);
 
-    useEffect(() => {
-        onCheckBox();
-    });
+    return () => clearInterval(interval);
+  }, [isChecked, nextSlide]);
 
-    // Фіксим баг - скажений автоплей
-    function checkBoxHandle () {
-        setIsChecked(!isChecked);
-        clearInterval(interval.current);
-        console.log(`Autoplay: ${!isChecked}`);
-    }
+  const handleCheckboxChange = (event) => {
+    setIsChecked(event.target.checked);
+  };
 
-    return (
-        <div className="checkBoxBlock">
-            <input 
-                type="checkbox"
-                id='switch' 
-                checked={isChecked} 
-                onChange={() => checkBoxHandle()}
-                className={`checkbox ${isChecked ? "checkBoxAct" : "checkBoxDisact"}`}
-                aria-hidden="true"
-            >
-            </input>
-            <label htmlFor='switch'>Autoplay</label>
-        </div>
-    )
-}
+  return (
+    <div className="checkBox">
+      <input
+        type="checkbox"
+        id="switch"
+        checked={isChecked}
+        onChange={handleCheckboxChange}
+        className={`checkbox ${isChecked ? "checkBoxAct" : "checkBoxDisact"}`}
+      ></input>
+      <label htmlFor="switch">Autoplay</label>
+    </div>
+  );
+};
 
-export default CheckBox
+export default CheckBox;
