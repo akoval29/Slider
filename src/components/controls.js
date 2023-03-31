@@ -1,6 +1,6 @@
 import { Formik, Form, Field, ErrorMessage } from "formik";
 
-const Controls = ({ handleChange, search, perPage }) => {
+const Controls = ({ handleChange }) => {
   return (
     <section className="controls">
       <Formik
@@ -18,8 +18,6 @@ const Controls = ({ handleChange, search, perPage }) => {
         }}
         onSubmit={(values, { setSubmitting }) => {
           handleChange(values);
-          // setSearch(values.inputSearch);
-          // setPerPage(values.inputAmount);
           setSubmitting(false);
         }}
       >

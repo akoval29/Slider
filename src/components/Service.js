@@ -52,7 +52,7 @@ const Service = () => {
     axiosData();
   }, [axiosData]);
 
-  return { result, search, perPage, process, setProcess, handleChange };
+  return { result, process, handleChange };
 };
 
 export default Service;
