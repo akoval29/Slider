@@ -27,38 +27,46 @@ const SliderApp = () => {
     setCurrent(index);
   };
 
-  return (
-    <section className="container">
-      <div className="slider">
-        {process === "axiosError" ? <ErrorMSG /> : null}
+  switch (process) {
+    case "axiosError":
+      return <ErrorMSG />;
 
-        {process === "dataRecieved" ? (
-          <Slider
-            current={current}
-            length={length}
-            result={result}
-            moveDot={moveDot}
-            nextSlide={nextSlide}
-            prevSlide={prevSlide}
-          />
-        ) : (
-          <div className="slider__spinner">
-            <Spinner />
+    case "dataRecieved":
+      return (
+        <section className="container">
+          <div className="slider">
+            <Slider
+              current={current}
+              length={length}
+              result={result}
+              moveDot={moveDot}
+              nextSlide={nextSlide}
+              prevSlide={prevSlide}
+            />
           </div>
-        )}
-      </div>
+          <CheckBox nextSlide={nextSlide} />
 
-      <CheckBox nextSlide={nextSlide} />
+          <Controls
+            result={result}
+            handleChange={handleChange}
+            search={search}
+            perPage={perPage}
+            ErrorMSG={ErrorMSG}
+          />
+        </section>
+      );
 
-      <Controls
-        result={result}
-        handleChange={handleChange}
-        search={search}
-        perPage={perPage}
-        ErrorMSG={ErrorMSG}
-      />
-    </section>
-  );
+    default:
+      return (
+        <section className="container">
+          <div className="slider">
+            <div className="slider__spinner">
+              <Spinner />
+            </div>
+          </div>
+        </section>
+      );
+  }
 };
 
 export default SliderApp;

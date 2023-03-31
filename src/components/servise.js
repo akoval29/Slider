@@ -22,13 +22,17 @@ const Servise = () => {
       perPage;
     const access_token =
       "563492ad6f91700001000001ff981c4ab12a4096aa425dfe9d443dd0";
-    setProcess("getting data...");
+    setProcess("loading");
 
     axios
       .get(url, { headers: { Authorization: `${access_token}` } })
       .then((data) => {
-        setResult(data.data.photos);
-        setProcess("dataRecieved");
+        if (data.data.photos.length > 0) {
+          setResult(data.data.photos);
+          setProcess("dataRecieved");
+        } else {
+          setProcess("axiosError");
+        }
       })
       .catch(function (error) {
         setProcess("axiosError");

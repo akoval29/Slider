@@ -19,6 +19,8 @@ const Slider = ({ result, moveDot, current, length, nextSlide, prevSlide }) => {
               src={obj.src.landscape}
               alt={`PhotoID: ${obj.id}`}
             />
+            <p>{`Photographer: ${obj.photographer}`}</p>
+            <a href="https://www.pexels.com">Photos provided by Pexels</a>
 
             <FaArrowAltCircleLeft
               className="slider__arrows slider__arrows--left"
@@ -29,9 +31,6 @@ const Slider = ({ result, moveDot, current, length, nextSlide, prevSlide }) => {
               className="slider__arrows slider__arrows--right"
               onClick={nextSlide}
             />
-
-            <p>{`Photographer: ${obj.photographer}`}</p>
-            <a href="https://www.pexels.com">Photos provided by Pexels</a>
 
             <div className="slider__slide__dots">
               {Array.from({ length: length }).map((item, index) => (

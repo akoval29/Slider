@@ -8,15 +8,11 @@ const Controls = ({ result, handleChange, search, perPage }) => {
         validate={(values) => {
           const errors = {};
           if (!values.inputSearch) {
-            errors.inputSearch = "<= REQUIRED!";
-          } else if (result.length <= 0) {
-            errors.inputSearch = "Press F5 key";
-          }
-          // else if (result.length <= 0) { return <div><ErrorMSG/></div>}
-          else if (!values.inputAmount) {
-            errors.inputAmount = "REQUIRED! =>";
+            errors.inputSearch = "<= type";
+          } else if (!values.inputAmount) {
+            errors.inputAmount = "type =>";
           } else if (!/\d+/.test(values.inputAmount)) {
-            errors.inputAmount = "Only digits!";
+            errors.inputAmount = "Only digits! =>";
           }
           return errors;
         }}
@@ -32,9 +28,7 @@ const Controls = ({ result, handleChange, search, perPage }) => {
               type="inputSearch"
               name="inputSearch"
               tabIndex={0}
-              placeholder={
-                search === "bass" ? "Type something ..." : `${search}(s)`
-              }
+              placeholder="Type something ..."
             />
 
             <ErrorMessage
@@ -49,7 +43,7 @@ const Controls = ({ result, handleChange, search, perPage }) => {
               disabled={isSubmitting}
               tabIndex={0}
             >
-              <div className="inner">search</div>
+              search
             </button>
 
             <Field
