@@ -9,7 +9,7 @@ import CheckBox from "./components/CheckBox";
 import "../src/style/app.css";
 
 const SliderApp = () => {
-  const { result, handleChange, process } = Service(); // income form Service
+  const { result, serviceControlBringe, process } = Service(); // income form Service
   const [current, setCurrent] = useState(0); // current slide
 
   //Навігація
@@ -54,7 +54,7 @@ const SliderApp = () => {
           </div>
           <CheckBox nextSlide={nextSlide} />
 
-          <Controls handleChange={handleChange} />
+          <Controls serviceControlBringe={serviceControlBringe} />
         </section>
       );
     default:

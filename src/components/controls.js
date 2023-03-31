@@ -1,6 +1,6 @@
 import { Formik, Form, Field, ErrorMessage } from "formik";
 
-const Controls = ({ handleChange }) => {
+const Controls = ({ serviceControlBringe }) => {
   return (
     <section className="controls">
       <Formik
@@ -17,7 +17,7 @@ const Controls = ({ handleChange }) => {
           return errors;
         }}
         onSubmit={(values, { setSubmitting }) => {
-          handleChange(values);
+          serviceControlBringe(values);
           setSubmitting(false);
         }}
       >

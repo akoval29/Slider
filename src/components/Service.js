@@ -8,7 +8,7 @@ const Service = () => {
   const [process, setProcess] = useState("loading"); //FSM
 
   // зв'язуєм Formik із controls.js з Аксіос тут
-  function handleChange(values) {
+  function serviceControlBringe(values) {
     setSearch(values.inputSearch);
     setPerPage(values.inputAmount);
   }
@@ -52,7 +52,7 @@ const Service = () => {
     axiosData();
   }, [axiosData]);
 
-  return { result, process, handleChange };
+  return { result, process, serviceControlBringe };
 };
 
 export default Service;
