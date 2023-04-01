@@ -8,9 +8,9 @@ const Controls = ({ serviceControlBringe }) => {
         validate={(values) => {
           const errors = {};
           if (!values.inputSearch) {
-            errors.inputSearch = "<= TYPE";
+            errors.inputSearch = "<= ENTER";
           } else if (!values.inputAmount) {
-            errors.inputAmount = "TYPE =>";
+            errors.inputAmount = "ENTER =>";
           } else if (!/\d+/.test(values.inputAmount)) {
             errors.inputAmount = "Only digits! =>";
           }
@@ -34,7 +34,7 @@ const Controls = ({ serviceControlBringe }) => {
             <ErrorMessage
               name="inputSearch"
               component="div"
-              className="controls__row__error"
+              className="controls__row__error controls__row__error--left"
             />
 
             <button
@@ -57,7 +57,7 @@ const Controls = ({ serviceControlBringe }) => {
             <ErrorMessage
               name="inputAmount"
               component="div"
-              className="controls__row__error"
+              className="controls__row__error controls__row__error--right"
             />
           </Form>
         )}

@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 
 let CheckBox = ({ nextSlide }) => {
   const [isChecked, setIsChecked] = useState(false);

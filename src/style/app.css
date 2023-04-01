@@ -1,5 +1,7 @@
 @charset "UTF-8";
 @import url(normalize.css);
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100&display=swap");
 body {
   background-image: url(https://images.pexels.com/photos/235985/pexels-photo-235985.jpeg);
   display: flex;
@@ -58,7 +60,7 @@ body .container .slider__spinner--spin {
   height: 40px;
   border-radius: 50%;
   border: 3px solid transparent;
-  border-top-color: #ffffff;
+  border-top-color: #fee9ec;
   animation: spin 0.8s linear infinite;
 }
 @keyframes spin {
@@ -73,6 +75,9 @@ body .container .slider__slide {
   right: 0;
   bottom: 0;
   opacity: 0;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: bold;
+  letter-spacing: 1px;
 }
 body .container .slider__slide--active {
   opacity: 1;
@@ -92,7 +97,7 @@ body .container .slider__slide > a {
   top: 5%;
   right: 4%;
   font-weight: bold;
-  color: azure;
+  color: #8d0515;
   cursor: pointer;
 }
 body .container .slider__slide__image {
@@ -113,9 +118,9 @@ body .container .slider__slide__dots--dot {
   width: 20px;
   height: 20px;
   border-radius: 50%;
-  border: 3px solid #f1f1f1;
+  border: 3px solid #fee9ec;
   margin: 0 5px;
-  background: #f1f1f1;
+  background: #fee9ec;
   cursor: pointer;
 }
 body .container .slider__slide__dots--dotActive {
@@ -142,6 +147,7 @@ body .container .checkBox label {
   position: relative;
   transform: scale(0.45);
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
+  box-shadow: inset 0px 0px 20px 5px #5c030e;
   transition: background-color 0.3s;
 }
 body .container .checkBox label:after {
@@ -151,7 +157,7 @@ body .container .checkBox label:after {
   left: 5px;
   width: 90px;
   height: 90px;
-  background: #fff;
+  background: #fee9ec;
   border-radius: 100px;
   transition: 0.3s;
 }
@@ -184,6 +190,9 @@ body .container .controls__row input {
   text-align: center;
   margin: 15px;
   font-size: 20px;
+  font-family: "Poppins", sans-serif;
+  font-weight: bold;
+  letter-spacing: 3px;
   height: 40px;
   width: 400px;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.7);
@@ -198,22 +207,43 @@ body .container .controls__row__error {
   justify-content: center;
   align-items: center;
   left: 44%;
-  top: 20%;
+  top: 25%;
   text-align: center;
   border: none;
-  width: 120px;
-  height: 65px;
-  z-index: 10;
+  width: 110px;
+  height: 50px;
+  letter-spacing: 1px;
+  font-size: 18px;
   border-radius: 10px;
-  color: white;
+  color: #fee9ec;
   background-color: #8d0515;
   -webkit-user-select: none;
      -moz-user-select: none;
           user-select: none;
+  z-index: 10;
 }
 body .container .controls__row__error:hover {
-  transform: scale(1.3);
-  border-radius: 50px;
+  transform: scale(1.05);
+  transition: transform 0.3s ease;
+}
+body .container .controls__row__error--left:before, body .container .controls__row__error--right:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 1px;
+  height: 1px;
+  border-style: solid;
+  border-color: transparent;
+  border-width: 25px 35px;
+  z-index: 9;
+}
+body .container .controls__row__error--left:before {
+  left: -65px;
+  border-right-color: #8d0515;
+}
+body .container .controls__row__error--right:before {
+  right: -65px;
+  border-left-color: #8d0515;
 }
 body .container .controls__row__button {
   display: flex;
@@ -222,12 +252,17 @@ body .container .controls__row__button {
   height: 40px;
   width: 100px;
   background-color: #8d0515;
-  color: azure;
+  color: #fee9ec;
+  letter-spacing: 1px;
   font-size: 18px;
   border-radius: 10px;
+  box-shadow: inset 0px 0px 20px 5px #5c030e;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   cursor: pointer;
 }
 body .container .controls__row__button:hover {
   transform: scale(1.1);
+}
+body .container .controls__row__button:active {
+  background-color: #740411;
 }/*# sourceMappingURL=app.css.map */
