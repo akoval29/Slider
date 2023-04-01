@@ -31,17 +31,16 @@ body .container .slider {
 }
 body .container .slider__arrows {
   position: absolute;
-  width: 50px;
-  height: 50px;
+  width: 100px;
+  height: 100%;
   cursor: pointer;
-  top: 45%;
   color: #8d0515;
 }
 body .container .slider__arrows--right {
-  right: 20px;
+  right: 10px;
 }
 body .container .slider__arrows--left {
-  left: 20px;
+  left: 10px;
 }
 body .container .slider__spinner {
   position: fixed;
@@ -145,7 +144,6 @@ body .container .checkBox label {
   border-radius: 100px;
   position: relative;
   transform: scale(0.45);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
   box-shadow: inset 0px 0px 20px 5px #5c030e;
   transition: background-color 0.3s;
 }
@@ -268,4 +266,4 @@ body .container .controls__row__button:hover {
 }
 body .container .controls__row__button:active {
   background-color: #740411;
-}/*# sourceMappingURL=app.css.map */
+}/*# sourceMappingURL=styles.css.map */

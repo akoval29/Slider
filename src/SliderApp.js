@@ -1,24 +1,23 @@
 import React, { useState } from "react";
 
-import Service from "./components/Service";
-import ErrorMSG from "./components/error/errorMSG";
+import useAPI from "./components/useAPI";
+import ErrorMessage from "./components/error/ErrorMessage";
 import Slider from "./components/Slider";
-import Controls from "./components/Controls";
+import FormGroup from "./components/FormGroup";
 import CheckBox from "./components/CheckBox";
 
-import "../src/style/app.css";
+import "../src/style/styles.css";
 
 const SliderApp = () => {
-  const { result, serviceControlBringe, process } = Service(); // income form Service
+  const { result, serviceControlBringe, isLoaded } = useAPI();
   const [current, setCurrent] = useState(0); // current slide
 
   //Навігація
-  const length = result.length;
   const nextSlide = () => {
-    setCurrent(current === length - 1 ? 0 : current + 1);
+    setCurrent(current === result.length - 1 ? 0 : current + 1);
   };
   const prevSlide = () => {
-    setCurrent(current === 0 ? length - 1 : current - 1);
+    setCurrent(current === 0 ? result.length - 1 : current - 1);
   };
 
   // Доти
@@ -26,9 +25,7 @@ const SliderApp = () => {
     setCurrent(index);
   };
 
-  switch (process) {
-    case "axiosError":
-      return <ErrorMSG />;
+  switch (isLoaded) {
     case "loading":
       return (
         <section className="container">
@@ -39,13 +36,14 @@ const SliderApp = () => {
           </div>
         </section>
       );
-    case "dataRecieved":
+    case false:
+      return <ErrorMessage />;
+    case true:
       return (
         <section className="container">
           <div className="slider">
             <Slider
               current={current}
-              length={length}
               result={result}
               moveDot={moveDot}
               nextSlide={nextSlide}
@@ -54,7 +52,7 @@ const SliderApp = () => {
           </div>
           <CheckBox nextSlide={nextSlide} />
 
-          <Controls serviceControlBringe={serviceControlBringe} />
+          <FormGroup serviceControlBringe={serviceControlBringe} />
         </section>
       );
     default:

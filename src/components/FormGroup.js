@@ -1,6 +1,6 @@
 import { Formik, Form, Field, ErrorMessage } from "formik";
 
-const Controls = ({ serviceControlBringe }) => {
+const FormGroup = ({ serviceControlBringe }) => {
   return (
     <section className="controls">
       <Formik
@@ -11,7 +11,7 @@ const Controls = ({ serviceControlBringe }) => {
             errors.inputSearch = "ENTER TEXT";
           } else if (!values.inputAmount) {
             errors.inputAmount = "AMOUNT";
-          } else if (!/^[1-9]|[1-4]\d|50$/.test(values.inputAmount)) {
+          } else if (!/\d+/.test(values.inputAmount)) {
             errors.inputAmount = "ONLY DIGITS";
           }
           return errors;
@@ -66,4 +66,4 @@ const Controls = ({ serviceControlBringe }) => {
   );
 };
 
-export default Controls;
+export default FormGroup;

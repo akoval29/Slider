@@ -38,16 +38,15 @@ body {
 
       &__arrows {
         position: absolute;
-        width: 50px;
-        height: 50px;
+        width: 100px;
+        height: 100%;
         cursor: pointer;
-        top: 45%;
         color: $main-color;
         &--right {
-          right: 20px;
+          right: 10px;
         }
         &--left {
-          left: 20px;
+          left: 10px;
         }
       }
       &__spinner {
@@ -162,7 +161,6 @@ body {
         border-radius: 100px;
         position: relative;
         transform: scale(0.45);
-        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
         box-shadow: inset 0px 0px 20px 5px darken($main-color, 10%);
         transition: background-color 0.3s;
 

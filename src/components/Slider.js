@@ -1,6 +1,6 @@
-import { FaArrowAltCircleRight, FaArrowAltCircleLeft } from "react-icons/fa";
+import { RiArrowRightSLine, RiArrowLeftSLine } from "react-icons/ri";
 
-const Slider = ({ result, moveDot, current, length, nextSlide, prevSlide }) => {
+const Slider = ({ result, moveDot, current, nextSlide, prevSlide }) => {
   return (
     <>
       {result.map((obj, idx) => {
@@ -22,18 +22,18 @@ const Slider = ({ result, moveDot, current, length, nextSlide, prevSlide }) => {
             <p>{`Photographer: ${obj.photographer}`}</p>
             <a href="https://www.pexels.com">Photos provided by Pexels</a>
 
-            <FaArrowAltCircleLeft
+            <RiArrowLeftSLine
               className="slider__arrows slider__arrows--left"
               onClick={prevSlide}
             />
 
-            <FaArrowAltCircleRight
+            <RiArrowRightSLine
               className="slider__arrows slider__arrows--right"
               onClick={nextSlide}
             />
 
             <div className="slider__slide__dots">
-              {Array.from({ length: length }).map((item, index) => (
+              {Array.from({ length: result.length }).map((item, index) => (
                 <div
                   key={index}
                   onClick={() => moveDot(index)}
