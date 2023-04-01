@@ -1,6 +1,22 @@
 import { RiArrowRightSLine, RiArrowLeftSLine } from "react-icons/ri";
+import { useEffect } from "react";
 
 const Slider = ({ result, moveDot, current, nextSlide, prevSlide }) => {
+  // Листаєм слайди з клавіатури
+  const handleKeyDown = (event) => {
+    if (event.keyCode === 37) {
+      prevSlide();
+    } else if (event.keyCode === 39) {
+      nextSlide();
+    }
+  };
+  useEffect(() => {
+    window.addEventListener("keydown", handleKeyDown);
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [current]);
+
   return (
     <>
       {result.map((obj, idx) => {

@@ -73,15 +73,21 @@ body .container .slider__slide {
   left: 0;
   right: 0;
   bottom: 0;
-  opacity: 0;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: bold;
   letter-spacing: 1px;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+body .container .slider__slide__image {
+  position: absolute;
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 100%;
+  height: 100%;
 }
 body .container .slider__slide--active {
   opacity: 1;
-  transition-duration: 0.5s;
-  transform: scale(1.01);
 }
 body .container .slider__slide > p {
   position: absolute;
@@ -97,13 +103,6 @@ body .container .slider__slide > a {
   font-weight: bold;
   color: #8d0515;
   cursor: pointer;
-}
-body .container .slider__slide__image {
-  position: absolute;
-  -o-object-fit: cover;
-     object-fit: cover;
-  width: 100%;
-  height: 100%;
 }
 body .container .slider__slide__dots {
   position: absolute;
