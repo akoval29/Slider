@@ -1,0 +1,6 @@
+{
+  "name": "Pexels carousel slider",
+  "short_name": "slider",
+  "start_url": "/index.html",
+  "display": "standalone"
+}

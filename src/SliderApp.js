@@ -33,8 +33,8 @@ const SliderApp = () => {
       return (
         <section className="container">
           <div className="slider">
-            <div class="slider__spinner">
-              <div class="slider__spinner--spin"></div>
+            <div className="slider__spinner">
+              <div className="slider__spinner--spin"></div>
             </div>
           </div>
         </section>

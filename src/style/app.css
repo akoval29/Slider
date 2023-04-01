@@ -1,7 +1,7 @@
-@charset "UTF-8";
 @import url(normalize.css);
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Oswald&display=swap");
 body {
   background-image: url(https://images.pexels.com/photos/235985/pexels-photo-235985.jpeg);
   display: flex;
@@ -52,7 +52,7 @@ body .container .slider__spinner {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgba(0, 0, 0, 0.5); /* прозорий чорний фон */
+  background-color: rgba(0, 0, 0, 0.5);
   z-index: 9999;
 }
 body .container .slider__spinner--spin {
@@ -60,7 +60,7 @@ body .container .slider__spinner--spin {
   height: 40px;
   border-radius: 50%;
   border: 3px solid transparent;
-  border-top-color: #fee9ec;
+  border-top-color: #fff3f5;
   animation: spin 0.8s linear infinite;
 }
 @keyframes spin {
@@ -86,16 +86,15 @@ body .container .slider__slide--active {
 }
 body .container .slider__slide > p {
   position: absolute;
-  top: 5%;
-  left: 4%;
-  text-align: center;
+  top: 3%;
+  left: 2%;
   color: #8d0515;
   font-weight: bold;
 }
 body .container .slider__slide > a {
   position: absolute;
-  top: 5%;
-  right: 4%;
+  top: 3%;
+  right: 2%;
   font-weight: bold;
   color: #8d0515;
   cursor: pointer;
@@ -118,9 +117,9 @@ body .container .slider__slide__dots--dot {
   width: 20px;
   height: 20px;
   border-radius: 50%;
-  border: 3px solid #fee9ec;
+  border: 3px solid #fff3f5;
   margin: 0 5px;
-  background: #fee9ec;
+  background: #fff3f5;
   cursor: pointer;
 }
 body .container .slider__slide__dots--dotActive {
@@ -157,7 +156,7 @@ body .container .checkBox label:after {
   left: 5px;
   width: 90px;
   height: 90px;
-  background: #fee9ec;
+  background: #fff3f5;
   border-radius: 100px;
   transition: 0.3s;
 }
@@ -195,11 +194,11 @@ body .container .controls__row input {
   letter-spacing: 3px;
   height: 40px;
   width: 400px;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.7);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 body .container .controls__row input:hover {
   transform: scale(1.05);
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.5);
 }
 body .container .controls__row__error {
   position: absolute;
@@ -212,10 +211,11 @@ body .container .controls__row__error {
   border: none;
   width: 110px;
   height: 50px;
+  font-family: "Oswald", sans-serif;
   letter-spacing: 1px;
   font-size: 18px;
   border-radius: 10px;
-  color: #fee9ec;
+  color: #fff3f5;
   background-color: #8d0515;
   -webkit-user-select: none;
      -moz-user-select: none;
@@ -252,16 +252,19 @@ body .container .controls__row__button {
   height: 40px;
   width: 100px;
   background-color: #8d0515;
-  color: #fee9ec;
+  color: #fff3f5;
+  font-family: "Poppins", sans-serif;
+  font-weight: bold;
   letter-spacing: 1px;
   font-size: 18px;
   border-radius: 10px;
   box-shadow: inset 0px 0px 20px 5px #5c030e;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
   cursor: pointer;
 }
 body .container .controls__row__button:hover {
-  transform: scale(1.1);
+  transform: scale(1.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: inset 0px 0px 20px 5px #5c030e, 0 5px 10px rgba(0, 0, 0, 0.5);
 }
 body .container .controls__row__button:active {
   background-color: #740411;

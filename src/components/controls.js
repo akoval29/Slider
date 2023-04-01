@@ -8,11 +8,11 @@ const Controls = ({ serviceControlBringe }) => {
         validate={(values) => {
           const errors = {};
           if (!values.inputSearch) {
-            errors.inputSearch = "<= ENTER";
+            errors.inputSearch = "ENTER TEXT";
           } else if (!values.inputAmount) {
-            errors.inputAmount = "ENTER =>";
-          } else if (!/\d+/.test(values.inputAmount)) {
-            errors.inputAmount = "Only digits! =>";
+            errors.inputAmount = "AMOUNT";
+          } else if (!/^[1-9]|[1-4]\d|50$/.test(values.inputAmount)) {
+            errors.inputAmount = "ONLY DIGITS";
           }
           return errors;
         }}

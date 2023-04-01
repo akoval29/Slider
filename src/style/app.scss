@@ -1,9 +1,10 @@
 @import url(normalize.css);
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Oswald&display=swap");
 
 $main-color: #8d0515;
-$main-white: lighten($main-color, 67%);
+$main-white: lighten($main-color, 69%);
 
 body {
   background-image: url(https://images.pexels.com/photos/235985/pexels-photo-235985.jpeg);
@@ -58,7 +59,7 @@ body {
         display: flex;
         justify-content: center;
         align-items: center;
-        background-color: rgba(0, 0, 0, 0.5); /* прозорий чорний фон */
+        background-color: rgba(0, 0, 0, 0.5);
         z-index: 9999;
         &--spin {
           width: 40px;
@@ -95,9 +96,8 @@ body {
         > p {
           // photogapher
           position: absolute;
-          top: 5%;
-          left: 4%;
-          text-align: center;
+          top: 3%;
+          left: 2%;
           color: $main-color;
           font-weight: bold;
         }
@@ -105,8 +105,8 @@ body {
         > a {
           // Photos provided by Pexels
           position: absolute;
-          top: 5%;
-          right: 4%;
+          top: 3%;
+          right: 2%;
           font-weight: bold;
           color: $main-color;
           cursor: pointer;
@@ -216,10 +216,10 @@ body {
           letter-spacing: 3px;
           height: 40px;
           width: 400px;
-          box-shadow: 0 10px 20px rgba(0, 0, 0, 0.7);
           transition: transform 0.3s ease, box-shadow 0.3s ease;
           &:hover {
             transform: scale(1.05);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.5);
           }
         }
 
@@ -234,6 +234,7 @@ body {
           border: none;
           width: 110px;
           height: 50px;
+          font-family: "Oswald", sans-serif;
           letter-spacing: 1px;
           font-size: 18px;
           border-radius: 10px;
@@ -277,14 +278,18 @@ body {
           width: 100px;
           background-color: $main-color;
           color: $main-white;
+          font-family: "Poppins", sans-serif;
+          font-weight: bold;
           letter-spacing: 1px;
           font-size: 18px;
           border-radius: 10px;
           box-shadow: inset 0px 0px 20px 5px darken($main-color, 10%);
-          transition: transform 0.3s ease, box-shadow 0.3s ease;
           cursor: pointer;
           &:hover {
-            transform: scale(1.1);
+            transform: scale(1.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: inset 0px 0px 20px 5px darken($main-color, 10%),
+              0 5px 10px rgba(0, 0, 0, 0.5);
           }
           &:active {
             background-color: darken($main-color, 5%);
