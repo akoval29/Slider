@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
-import img from "./errorRed.jpg";
+const img =
+  "https://www.ionos.com/digitalguide/fileadmin/DigitalGuide/Teaser/error-t.jpg";
 
 const ErrorMessage = () => {
   const [countdown, setCountdown] = useState(20);

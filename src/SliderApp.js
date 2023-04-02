@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 import useAPI from "./components/useAPI";
-import ErrorMessage from "./components/error/ErrorMessage";
+import ErrorMessage from "./components/ErrorMessage";
 import Slider from "./components/Slider";
 import FormGroup from "./components/FormGroup";
 import CheckBox from "./components/CheckBox";
