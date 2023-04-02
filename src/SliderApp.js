@@ -25,9 +25,7 @@ const SliderApp = () => {
       return (
         <section className="container">
           <div className="slider">
-            <div className="slider__spinner">
-              <span></span>
-            </div>
+            <span className="slider__spinner"></span>
           </div>
           <CheckBox nextSlide={nextSlide} />
           <FormGroup FormikHandler={FormikHandler} />

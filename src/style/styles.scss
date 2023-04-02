@@ -34,6 +34,7 @@ body {
       overflow: hidden;
       margin-bottom: 20px;
       border-radius: 25px;
+      background-color: rgba(0, 0, 0, 0.2);
       box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
 
       &__arrows {
@@ -50,21 +51,12 @@ body {
         }
       }
       &__spinner {
-        display: flex;
-        position: relative;
-        width: 100%;
-        height: 100%;
-        justify-content: center;
-        align-items: center;
-        background-color: rgba(0, 0, 0, 0.2);
-        span {
-          width: 200px;
-          height: 200px;
-          border-radius: 50%;
-          border: 6px solid transparent;
-          border-top-color: $main-color;
-          animation: spin 0.8s linear infinite;
-        }
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        border: 6px solid transparent;
+        border-top-color: $main-color;
+        animation: spin 0.8s linear infinite;
         @keyframes spin {
           to {
             transform: rotate(360deg);

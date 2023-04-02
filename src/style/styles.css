@@ -27,6 +27,7 @@ body .container .slider {
   overflow: hidden;
   margin-bottom: 20px;
   border-radius: 25px;
+  background-color: rgba(0, 0, 0, 0.2);
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
 }
 body .container .slider__arrows {
@@ -43,15 +44,6 @@ body .container .slider__arrows--left {
   left: 10px;
 }
 body .container .slider__spinner {
-  display: flex;
-  position: relative;
-  width: 100%;
-  height: 100%;
-  justify-content: center;
-  align-items: center;
-  background-color: rgba(0, 0, 0, 0.2);
-}
-body .container .slider__spinner span {
   width: 200px;
   height: 200px;
   border-radius: 50%;
