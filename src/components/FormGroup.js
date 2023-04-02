@@ -11,8 +11,15 @@ const FormGroup = ({ FormikHandler }) => {
             errors.inputSearch = "ENTER TEXT";
           } else if (!values.inputAmount) {
             errors.inputAmount = "AMOUNT";
-          } else if (!/\d+/.test(values.inputAmount)) {
+          } else if (isNaN(values.inputAmount)) {
             errors.inputAmount = "ONLY DIGITS";
+          } else if (
+            values.inputAmount.includes(".") ||
+            values.inputAmount.includes(",")
+          ) {
+            errors.inputAmount = "INTEGERS";
+          } else if (values.inputAmount > 50) {
+            errors.inputAmount = "50 MAX";
           }
           return errors;
         }}

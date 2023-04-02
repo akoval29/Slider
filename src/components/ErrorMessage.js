@@ -4,20 +4,19 @@ const img =
   "https://www.ionos.com/digitalguide/fileadmin/DigitalGuide/Teaser/error-t.jpg";
 
 const ErrorMessage = () => {
-  const [countdown, setCountdown] = useState(20);
+  const [countdown, setCountdown] = useState(10);
   const reloadPage = () => {
     window.location.reload();
   };
 
   useEffect(() => {
+    // Auto reload page
     const countdownTimer = setTimeout(() => {
       setCountdown(countdown - 1);
     }, 1000);
-
     if (countdown === 0) {
-      window.location.reload();
+      reloadPage();
     }
-
     return () => clearTimeout(countdownTimer);
   }, [countdown]);
 
@@ -55,7 +54,7 @@ const ErrorMessage = () => {
           marginTop: "20px",
           cursor: "pointer",
         }}
-        onClick={reloadPage}
+        onClick={reloadPage} // Manual reload page
       >
         Return
       </button>

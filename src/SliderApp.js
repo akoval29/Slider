@@ -12,7 +12,7 @@ const SliderApp = () => {
   const { result, FormikHandler, isLoaded } = useAPI();
   const [current, setCurrent] = useState(0); // current slide
 
-  //Навігація
+  // Navigation
   const nextSlide = () => {
     setCurrent(current === result.length - 1 ? 0 : current + 1);
   };

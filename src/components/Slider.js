@@ -2,12 +2,12 @@ import { RiArrowRightSLine, RiArrowLeftSLine } from "react-icons/ri";
 import { useEffect } from "react";
 
 const Slider = ({ result, current, setCurrent, nextSlide, prevSlide }) => {
-  // Доти змінюють слайд
+  // Dots changes slides
   const moveDot = (index) => {
     setCurrent(index);
   };
 
-  // Листаєм слайди з клавіатури
+  // Flip through the slides from the keyboard
   const handleKeyDown = (event) => {
     if (event.keyCode === 37) {
       prevSlide();
@@ -50,22 +50,28 @@ const Slider = ({ result, current, setCurrent, nextSlide, prevSlide }) => {
 
       {result.map((obj, idx) => {
         return (
-          <div
-            className={
-              idx === current
-                ? "slider__slide slider__slide--active"
-                : "slider__slide"
-            }
-            key={idx}
-          >
-            <img
-              className="slider__slide__image"
-              id={obj.id}
-              src={obj.src.landscape}
-              alt={`PhotoID: ${obj.id}`}
-            />
-            <p>{`Photographer: ${obj.photographer}`}</p>
-          </div>
+          <>
+            <div
+              className={
+                idx === current
+                  ? "slider__slide slider__slide--active"
+                  : "slider__slide"
+              }
+              key={idx}
+            >
+              <img
+                className="slider__slide__image"
+                id={obj.id}
+                src={obj.src.landscape}
+                alt={`PhotoID: ${obj.id}`}
+              />
+
+              <p>
+                {`Photographer: ${obj.photographer}`}
+                <span></span>
+              </p>
+            </div>
+          </>
         );
       })}
     </>
