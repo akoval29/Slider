@@ -9,7 +9,7 @@ import CheckBox from "./components/CheckBox";
 import "../src/style/styles.css";
 
 const SliderApp = () => {
-  const { result, serviceControlBringe, isLoaded } = useAPI();
+  const { result, FormikHandler, isLoaded } = useAPI();
   const [current, setCurrent] = useState(0); // current slide
 
   //Навігація
@@ -18,11 +18,6 @@ const SliderApp = () => {
   };
   const prevSlide = () => {
     setCurrent(current === 0 ? result.length - 1 : current - 1);
-  };
-
-  // Доти
-  const moveDot = (index) => {
-    setCurrent(index);
   };
 
   switch (isLoaded) {
@@ -34,6 +29,8 @@ const SliderApp = () => {
               <div className="slider__spinner--spin"></div>
             </div>
           </div>
+          <CheckBox nextSlide={nextSlide} />
+          <FormGroup FormikHandler={FormikHandler} />
         </section>
       );
     case false:
@@ -43,16 +40,15 @@ const SliderApp = () => {
         <section className="container">
           <div className="slider">
             <Slider
-              current={current}
               result={result}
-              moveDot={moveDot}
+              current={current}
+              setCurrent={setCurrent}
               nextSlide={nextSlide}
               prevSlide={prevSlide}
             />
           </div>
           <CheckBox nextSlide={nextSlide} />
-
-          <FormGroup serviceControlBringe={serviceControlBringe} />
+          <FormGroup FormikHandler={FormikHandler} />
         </section>
       );
     default:

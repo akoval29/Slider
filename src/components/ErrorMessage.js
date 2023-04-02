@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
+
 const img =
   "https://www.ionos.com/digitalguide/fileadmin/DigitalGuide/Teaser/error-t.jpg";
 
 const ErrorMessage = () => {
   const [countdown, setCountdown] = useState(20);
-
   const reloadPage = () => {
     window.location.reload();
   };

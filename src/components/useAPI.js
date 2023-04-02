@@ -8,9 +8,10 @@ const useAPI = () => {
   const [isLoaded, setIsLoaded] = useState("loading");
 
   // connect Formik to axios
-  function serviceControlBringe(values) {
+  function FormikHandler(values) {
     setSearch(values.inputSearch);
     setPerPage(values.inputAmount);
+    setIsLoaded("loading"); // for spinner
   }
 
   // Get data
@@ -40,7 +41,7 @@ const useAPI = () => {
     axiosData();
   }, [axiosData]);
 
-  return { result, isLoaded, serviceControlBringe };
+  return { result, isLoaded, FormikHandler };
 };
 
 export default useAPI;

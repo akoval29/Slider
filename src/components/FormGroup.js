@@ -1,6 +1,6 @@
 import { Formik, Form, Field, ErrorMessage } from "formik";
 
-const FormGroup = ({ serviceControlBringe }) => {
+const FormGroup = ({ FormikHandler }) => {
   return (
     <section className="controls">
       <Formik
@@ -17,7 +17,7 @@ const FormGroup = ({ serviceControlBringe }) => {
           return errors;
         }}
         onSubmit={(values, { setSubmitting }) => {
-          serviceControlBringe(values);
+          FormikHandler(values);
           setSubmitting(false);
         }}
       >
