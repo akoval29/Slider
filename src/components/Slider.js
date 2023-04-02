@@ -22,8 +22,32 @@ const Slider = ({ result, current, setCurrent, nextSlide, prevSlide }) => {
     };
   }, [current]);
 
+  // Layout
   return (
     <>
+      <RiArrowLeftSLine
+        className="slider__arrows slider__arrows--left"
+        onClick={prevSlide}
+      />
+      <RiArrowRightSLine
+        className="slider__arrows slider__arrows--right"
+        onClick={nextSlide}
+      />
+
+      <div className="slider__slide__dots">
+        {Array.from({ length: result.length }).map((item, index) => (
+          <div
+            key={index}
+            onClick={() => moveDot(index)}
+            className={
+              current === index
+                ? "slider__slide__dots--dot slider__slide__dots--dotActive"
+                : "slider__slide__dots--dot"
+            }
+          ></div>
+        ))}
+      </div>
+
       {result.map((obj, idx) => {
         return (
           <div
@@ -41,30 +65,6 @@ const Slider = ({ result, current, setCurrent, nextSlide, prevSlide }) => {
               alt={`PhotoID: ${obj.id}`}
             />
             <p>{`Photographer: ${obj.photographer}`}</p>
-
-            <RiArrowLeftSLine
-              className="slider__arrows slider__arrows--left"
-              onClick={prevSlide}
-            />
-
-            <RiArrowRightSLine
-              className="slider__arrows slider__arrows--right"
-              onClick={nextSlide}
-            />
-
-            <div className="slider__slide__dots">
-              {Array.from({ length: result.length }).map((item, index) => (
-                <div
-                  key={index}
-                  onClick={() => moveDot(index)}
-                  className={
-                    current === index
-                      ? "slider__slide__dots--dot slider__slide__dots--dotActive"
-                      : "slider__slide__dots--dot"
-                  }
-                ></div>
-              ))}
-            </div>
           </div>
         );
       })}

@@ -54,6 +54,10 @@ body {
         height: 100%;
         cursor: pointer;
         color: $main-color;
+        z-index: 1;
+        &:hover {
+          scale: (1.1);
+        }
         &--right {
           right: 10px;
         }
@@ -116,6 +120,7 @@ body {
           justify-content: center;
           width: 75%;
           flex-wrap: wrap;
+          z-index: 1;
           &--dot {
             width: 20px;
             height: 20px;

@@ -47,6 +47,10 @@ body .container .slider__arrows {
   height: 100%;
   cursor: pointer;
   color: #8d0515;
+  z-index: 1;
+}
+body .container .slider__arrows:hover {
+  scale: 1.1;
 }
 body .container .slider__arrows--right {
   right: 10px;
@@ -106,6 +110,7 @@ body .container .slider__slide__dots {
   justify-content: center;
   width: 75%;
   flex-wrap: wrap;
+  z-index: 1;
 }
 body .container .slider__slide__dots--dot {
   width: 20px;

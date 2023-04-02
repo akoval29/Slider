@@ -24,9 +24,9 @@ const SliderApp = () => {
     case "loading":
       return (
         <section className="container">
-          <div className="slider">
+          <article className="slider">
             <span className="slider__spinner"></span>
-          </div>
+          </article>
           <CheckBox nextSlide={nextSlide} />
           <FormGroup FormikHandler={FormikHandler} />
         </section>
@@ -37,7 +37,7 @@ const SliderApp = () => {
       return (
         <section className="container">
           <a href="https://www.pexels.com">Photos provided by Pexels</a>
-          <div className="slider">
+          <article className="slider">
             <Slider
               result={result}
               current={current}
@@ -45,7 +45,7 @@ const SliderApp = () => {
               nextSlide={nextSlide}
               prevSlide={prevSlide}
             />
-          </div>
+          </article>
           <CheckBox nextSlide={nextSlide} />
           <FormGroup FormikHandler={FormikHandler} />
         </section>
