@@ -2,7 +2,7 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 
 const FormGroup = ({ FormikHandler }) => {
   return (
-    <section className="controls">
+    <section className="formGroup">
       <Formik
         initialValues={{ inputSearch: "", inputAmount: "" }}
         validate={(values) => {
@@ -22,7 +22,7 @@ const FormGroup = ({ FormikHandler }) => {
         }}
       >
         {({ isSubmitting }) => (
-          <Form className="controls__row">
+          <Form className="formGroup__row">
             <Field
               className="input"
               type="inputSearch"
@@ -34,12 +34,12 @@ const FormGroup = ({ FormikHandler }) => {
             <ErrorMessage
               name="inputSearch"
               component="div"
-              className="controls__row__error controls__row__error--left"
+              className="formGroup__row__error formGroup__row__error--left"
             />
 
             <button
               type="submit"
-              className="controls__row__button"
+              className="formGroup__row__button"
               disabled={isSubmitting}
               tabIndex={0}
             >
@@ -57,7 +57,7 @@ const FormGroup = ({ FormikHandler }) => {
             <ErrorMessage
               name="inputAmount"
               component="div"
-              className="controls__row__error controls__row__error--right"
+              className="formGroup__row__error formGroup__row__error--right"
             />
           </Form>
         )}

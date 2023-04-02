@@ -1,5 +1,5 @@
 @import url(normalize.css);
-@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Oswald&display=swap");
 
@@ -14,6 +14,7 @@ body {
 
   .container {
     display: grid;
+    position: relative;
     grid-template-rows: 1fr 70px 100px;
     max-width: 1200px;
     max-height: 800px;
@@ -21,8 +22,19 @@ body {
     grid-template-areas:
       "slider"
       "checkBox"
-      "controls";
-
+      "formGroup";
+    > a {
+      // Photos provided by Pexels
+      position: absolute;
+      grid-area: slider;
+      top: -5%;
+      right: 3%;
+      font-size: 16px;
+      font-weight: bold;
+      color: $main-color;
+      cursor: pointer;
+      z-index: 999;
+    }
     .slider {
       grid-area: slider;
       display: flex;
@@ -72,9 +84,12 @@ body {
         bottom: 0;
         font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
         font-weight: bold;
-        letter-spacing: 1px;
-        opacity: 0;
+        letter-spacing: 2px;
         transition: opacity 0.5s ease-in-out;
+        opacity: 0;
+        &--active {
+          opacity: 1;
+        }
 
         &__image {
           position: absolute;
@@ -83,41 +98,30 @@ body {
           height: 100%;
         }
 
-        &--active {
-          opacity: 1;
-        }
-
         > p {
           // photogapher
           position: absolute;
           top: 3%;
-          left: 2%;
-          color: $main-color;
-          font-weight: bold;
-        }
-
-        > a {
-          // Photos provided by Pexels
-          position: absolute;
-          top: 3%;
           right: 2%;
-          font-weight: bold;
           color: $main-color;
-          cursor: pointer;
+          font-weight: bold;
         }
 
         &__dots {
           position: absolute;
-          bottom: 30px;
+          bottom: 5%;
           left: 50%;
           transform: translateX(-50%);
           display: flex;
+          justify-content: center;
+          width: 75%;
+          flex-wrap: wrap;
           &--dot {
             width: 20px;
             height: 20px;
             border-radius: 50%;
-            border: 3px solid $main-white;
-            margin: 0 5px;
+            border: 2px solid $main-white;
+            margin: 5px 5px;
             background: $main-white;
             cursor: pointer;
           }
@@ -133,12 +137,10 @@ body {
       display: flex;
       justify-content: center;
       align-items: center;
-
       input {
         height: 0;
         width: 0;
       }
-
       label {
         cursor: pointer;
         text-indent: -9999px;
@@ -151,7 +153,6 @@ body {
         transform: scale(0.45);
         box-shadow: inset 0px 0px 20px 5px darken($main-color, 10%);
         transition: background-color 0.3s;
-
         &:after {
           content: "";
           position: absolute;
@@ -164,32 +165,28 @@ body {
           transition: 0.3s;
         }
       }
-
       input:checked + label {
         background-color: green;
       }
-
       input:checked + label:after {
         left: calc(100% - 5px);
         transform: translateX(-100%);
       }
-
       label:active:after {
         width: 130px;
       }
     }
 
-    .controls {
-      grid-area: controls;
+    .formGroup {
+      grid-area: formGroup;
       display: flex;
       justify-content: center;
-
       &__row {
         position: relative;
         display: flex;
-        flex-direction: row;
         justify-content: center;
         align-items: center;
+        flex-direction: row;
         input {
           border: none;
           border-bottom: 3px solid rgb(0, 0, 0);
@@ -200,7 +197,7 @@ body {
           font-family: "Poppins", sans-serif;
           font-weight: bold;
           letter-spacing: 3px;
-          height: 40px;
+          height: 40%;
           width: 400px;
           transition: transform 0.3s ease, box-shadow 0.3s ease;
           &:hover {
@@ -245,23 +242,22 @@ body {
             border-width: 25px 35px;
             z-index: 9;
           }
-
           &--left:before {
             left: -65px;
             border-right-color: $main-color;
           }
-
           &--right:before {
             right: -65px;
             border-left-color: $main-color;
           }
         }
+
         &__button {
           display: flex;
           justify-content: center;
           align-items: center;
-          height: 40px;
-          width: 100px;
+          height: 40%;
+          width: 13%;
           background-color: $main-color;
           color: $main-white;
           font-family: "Poppins", sans-serif;

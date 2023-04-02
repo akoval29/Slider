@@ -41,7 +41,6 @@ const Slider = ({ result, current, setCurrent, nextSlide, prevSlide }) => {
               alt={`PhotoID: ${obj.id}`}
             />
             <p>{`Photographer: ${obj.photographer}`}</p>
-            <a href="https://www.pexels.com">Photos provided by Pexels</a>
 
             <RiArrowLeftSLine
               className="slider__arrows slider__arrows--left"

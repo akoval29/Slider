@@ -36,6 +36,7 @@ const SliderApp = () => {
     case true:
       return (
         <section className="container">
+          <a href="https://www.pexels.com">Photos provided by Pexels</a>
           <div className="slider">
             <Slider
               result={result}

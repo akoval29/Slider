@@ -1,5 +1,5 @@
 @import url(normalize.css);
-@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Oswald&display=swap");
 body {
@@ -10,11 +10,23 @@ body {
 }
 body .container {
   display: grid;
+  position: relative;
   grid-template-rows: 1fr 70px 100px;
   max-width: 1200px;
   max-height: 800px;
   margin: 100px;
-  grid-template-areas: "slider" "checkBox" "controls";
+  grid-template-areas: "slider" "checkBox" "formGroup";
+}
+body .container > a {
+  position: absolute;
+  grid-area: slider;
+  top: -5%;
+  right: 3%;
+  font-size: 16px;
+  font-weight: bold;
+  color: #8d0515;
+  cursor: pointer;
+  z-index: 999;
 }
 body .container .slider {
   grid-area: slider;
@@ -64,9 +76,12 @@ body .container .slider__slide {
   bottom: 0;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: bold;
-  letter-spacing: 1px;
-  opacity: 0;
+  letter-spacing: 2px;
   transition: opacity 0.5s ease-in-out;
+  opacity: 0;
+}
+body .container .slider__slide--active {
+  opacity: 1;
 }
 body .container .slider__slide__image {
   position: absolute;
@@ -75,37 +90,29 @@ body .container .slider__slide__image {
   width: 100%;
   height: 100%;
 }
-body .container .slider__slide--active {
-  opacity: 1;
-}
 body .container .slider__slide > p {
   position: absolute;
   top: 3%;
-  left: 2%;
-  color: #8d0515;
-  font-weight: bold;
-}
-body .container .slider__slide > a {
-  position: absolute;
-  top: 3%;
   right: 2%;
-  font-weight: bold;
   color: #8d0515;
-  cursor: pointer;
+  font-weight: bold;
 }
 body .container .slider__slide__dots {
   position: absolute;
-  bottom: 30px;
+  bottom: 5%;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
+  justify-content: center;
+  width: 75%;
+  flex-wrap: wrap;
 }
 body .container .slider__slide__dots--dot {
   width: 20px;
   height: 20px;
   border-radius: 50%;
-  border: 3px solid #fff3f5;
-  margin: 0 5px;
+  border: 2px solid #fff3f5;
+  margin: 5px 5px;
   background: #fff3f5;
   cursor: pointer;
 }
@@ -156,19 +163,19 @@ body .container .checkBox input:checked + label:after {
 body .container .checkBox label:active:after {
   width: 130px;
 }
-body .container .controls {
-  grid-area: controls;
+body .container .formGroup {
+  grid-area: formGroup;
   display: flex;
   justify-content: center;
 }
-body .container .controls__row {
+body .container .formGroup__row {
   position: relative;
   display: flex;
-  flex-direction: row;
   justify-content: center;
   align-items: center;
+  flex-direction: row;
 }
-body .container .controls__row input {
+body .container .formGroup__row input {
   border: none;
   border-bottom: 3px solid rgb(0, 0, 0);
   opacity: 0.7;
@@ -178,15 +185,15 @@ body .container .controls__row input {
   font-family: "Poppins", sans-serif;
   font-weight: bold;
   letter-spacing: 3px;
-  height: 40px;
+  height: 40%;
   width: 400px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-body .container .controls__row input:hover {
+body .container .formGroup__row input:hover {
   transform: scale(1.05);
   box-shadow: 0 10px 15px rgba(0, 0, 0, 0.5);
 }
-body .container .controls__row__error {
+body .container .formGroup__row__error {
   position: absolute;
   display: flex;
   justify-content: center;
@@ -208,11 +215,11 @@ body .container .controls__row__error {
           user-select: none;
   z-index: 10;
 }
-body .container .controls__row__error:hover {
+body .container .formGroup__row__error:hover {
   transform: scale(1.05);
   transition: transform 0.3s ease;
 }
-body .container .controls__row__error--left:before, body .container .controls__row__error--right:before {
+body .container .formGroup__row__error--left:before, body .container .formGroup__row__error--right:before {
   content: "";
   position: absolute;
   top: 0;
@@ -223,20 +230,20 @@ body .container .controls__row__error--left:before, body .container .controls__r
   border-width: 25px 35px;
   z-index: 9;
 }
-body .container .controls__row__error--left:before {
+body .container .formGroup__row__error--left:before {
   left: -65px;
   border-right-color: #8d0515;
 }
-body .container .controls__row__error--right:before {
+body .container .formGroup__row__error--right:before {
   right: -65px;
   border-left-color: #8d0515;
 }
-body .container .controls__row__button {
+body .container .formGroup__row__button {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 40px;
-  width: 100px;
+  height: 40%;
+  width: 13%;
   background-color: #8d0515;
   color: #fff3f5;
   font-family: "Poppins", sans-serif;
@@ -247,11 +254,11 @@ body .container .controls__row__button {
   box-shadow: inset 0px 0px 20px 5px #5c030e;
   cursor: pointer;
 }
-body .container .controls__row__button:hover {
+body .container .formGroup__row__button:hover {
   transform: scale(1.05);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   box-shadow: inset 0px 0px 20px 5px #5c030e, 0 5px 10px rgba(0, 0, 0, 0.5);
 }
-body .container .controls__row__button:active {
+body .container .formGroup__row__button:active {
   background-color: #740411;
 }/*# sourceMappingURL=styles.css.map */

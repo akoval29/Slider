@@ -3,7 +3,7 @@ import axios from "axios";
 
 const useAPI = () => {
   const [search, setSearch] = useState("sport car");
-  const [perPage, setPerPage] = useState(10);
+  const [perPage, setPerPage] = useState(15);
   const [result, setResult] = useState([]);
   const [isLoaded, setIsLoaded] = useState("loading");
 
