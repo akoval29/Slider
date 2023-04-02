@@ -1,9 +1,9 @@
 @import url(normalize.css);
-@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Oswald&display=swap");
 body {
   background-image: url(https://images.pexels.com/photos/235985/pexels-photo-235985.jpeg);
+  background-size: cover;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -24,9 +24,8 @@ body .container > a {
   right: 3%;
   font-size: 16px;
   font-weight: bold;
-  color: #8d0515;
+  color: black;
   cursor: pointer;
-  z-index: 999;
 }
 body .container .slider {
   grid-area: slider;
@@ -96,6 +95,7 @@ body .container .slider__slide > p {
   right: 2%;
   color: #8d0515;
   font-weight: bold;
+  position: absolute;
 }
 body .container .slider__slide__dots {
   position: absolute;
