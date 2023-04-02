@@ -57,12 +57,12 @@ body {
         justify-content: center;
         align-items: center;
         background-color: rgba(0, 0, 0, 0.2);
-        &--spin {
+        span {
           width: 200px;
           height: 200px;
           border-radius: 50%;
-          border: 3px solid transparent;
-          border-top-color: $main-white;
+          border: 6px solid transparent;
+          border-top-color: $main-color;
           animation: spin 0.8s linear infinite;
         }
         @keyframes spin {

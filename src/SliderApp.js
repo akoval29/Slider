@@ -26,7 +26,7 @@ const SliderApp = () => {
         <section className="container">
           <div className="slider">
             <div className="slider__spinner">
-              <div className="slider__spinner--spin"></div>
+              <span></span>
             </div>
           </div>
           <CheckBox nextSlide={nextSlide} />
