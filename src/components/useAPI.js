@@ -8,11 +8,11 @@ const useAPI = () => {
   const [isLoaded, setIsLoaded] = useState("loading");
 
   // connect Formik to axios
-  function FormikHandler(values) {
+  const FormikHandler = (values) => {
     setSearch(values.inputSearch);
     setPerPage(values.inputAmount);
     setIsLoaded("loading"); // for spinner
-  }
+  };
 
   // Get data
   const GetData = useCallback(async () => {
