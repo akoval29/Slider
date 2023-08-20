@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 const img =
   "https://www.ionos.com/digitalguide/fileadmin/DigitalGuide/Teaser/error-t.jpg";
 
-const ErrorMessage = () => {
+export const ErrorMessage = () => {
   const [countdown, setCountdown] = useState(10);
   const reloadPage = () => {
     window.location.reload();
@@ -61,5 +61,3 @@ const ErrorMessage = () => {
     </div>
   );
 };
-
-export default ErrorMessage;

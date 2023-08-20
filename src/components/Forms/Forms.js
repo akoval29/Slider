@@ -1,6 +1,8 @@
 import { Formik, Form, Field, ErrorMessage } from "formik";
 
-const FormGroup = ({ FormikHandler }) => {
+import "./formStyle.scss";
+
+export const Forms = ({ FormikHandler }) => {
   return (
     <section className="formGroup">
       <Formik
@@ -31,7 +33,7 @@ const FormGroup = ({ FormikHandler }) => {
         {({ isSubmitting }) => (
           <Form className="formGroup__row">
             <Field
-              className="input"
+              className="formGroup__input"
               type="inputSearch"
               name="inputSearch"
               tabIndex={0}
@@ -39,14 +41,14 @@ const FormGroup = ({ FormikHandler }) => {
             />
 
             <ErrorMessage
+              className="formGroup__error formGroup__error--left"
               name="inputSearch"
               component="div"
-              className="formGroup__row__error formGroup__row__error--left"
             />
 
             <button
+              className="formGroup__button"
               type="submit"
-              className="formGroup__row__button"
               disabled={isSubmitting}
               tabIndex={0}
             >
@@ -54,17 +56,17 @@ const FormGroup = ({ FormikHandler }) => {
             </button>
 
             <Field
+              className="formGroup__input"
               type="inputAmount"
               name="inputAmount"
               placeholder="How many photos ?"
-              className="input"
               tabIndex={0}
             />
 
             <ErrorMessage
+              className="formGroup__error formGroup__error--right"
               name="inputAmount"
               component="div"
-              className="formGroup__row__error formGroup__row__error--right"
             />
           </Form>
         )}
@@ -72,5 +74,3 @@ const FormGroup = ({ FormikHandler }) => {
     </section>
   );
 };
-
-export default FormGroup;

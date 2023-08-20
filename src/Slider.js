@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { RiArrowRightSLine, RiArrowLeftSLine } from "react-icons/ri";
 
-import useAPI from "./hook/useAPI";
-import ErrorMessage from "./components/ErrorMessage";
-import FormGroup from "./components/FormGroup";
-import CheckBox from "./components/CheckBox";
+import { ErrorMessage } from "./components/ErrorMessage";
+import { Forms } from "./components/Forms/Forms";
+import { CheckBox } from "./components/CheckBox";
+import { useAPI } from "./hook/useAPI";
 
 import "../src/style/styles.css";
 
@@ -33,7 +33,7 @@ export const Slider = () => {
             <span className="slider__spinner"></span>
           </article>
           <CheckBox nextSlide={nextSlide} />
-          <FormGroup FormikHandler={FormikHandler} />
+          <Forms FormikHandler={FormikHandler} />
         </section>
       );
     case false:
@@ -92,7 +92,7 @@ export const Slider = () => {
             })}
           </article>
           <CheckBox nextSlide={nextSlide} />
-          <FormGroup FormikHandler={FormikHandler} />
+          <Forms FormikHandler={FormikHandler} />
         </section>
       );
     default:

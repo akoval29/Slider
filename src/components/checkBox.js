@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-const CheckBox = ({ nextSlide }) => {
+export const CheckBox = ({ nextSlide }) => {
   const [isChecked, setIsChecked] = useState(false);
 
   useEffect(() => {
@@ -30,5 +30,3 @@ const CheckBox = ({ nextSlide }) => {
     </div>
   );
 };
-
-export default CheckBox;
