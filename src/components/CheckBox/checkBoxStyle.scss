@@ -1,0 +1,45 @@
+@use "../../style/normalize.scss" as *;
+
+.checkBox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  &__input {
+    height: 0;
+    width: 0;
+  }
+  &__label {
+    cursor: pointer;
+    text-indent: -9999px;
+    width: 200px;
+    height: 100px;
+    background: $main-color;
+    display: block;
+    border-radius: 100px;
+    position: relative;
+    transform: scale(0.45);
+    box-shadow: inset 0px 0px 20px 5px darken($main-color, 10%);
+    transition: background-color 0.3s;
+    &:after {
+      content: "";
+      position: absolute;
+      top: 5px;
+      left: 5px;
+      width: 90px;
+      height: 90px;
+      background: $main-white;
+      border-radius: 100px;
+      transition: 0.3s;
+    }
+  }
+  &__input:checked + &__label {
+    background-color: green;
+  }
+  &__input:checked + &__label:after {
+    left: calc(100% - 5px);
+    transform: translateX(-100%);
+  }
+  &__input:active:after {
+    width: 130px;
+  }
+}

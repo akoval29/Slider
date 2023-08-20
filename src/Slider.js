@@ -3,10 +3,10 @@ import { RiArrowRightSLine, RiArrowLeftSLine } from "react-icons/ri";
 
 import { ErrorMessage } from "./components/ErrorMessage";
 import { Forms } from "./components/Forms/Forms";
-import { CheckBox } from "./components/CheckBox";
+import { CheckBox } from "./components/CheckBox/CheckBox";
 import { useAPI } from "./hook/useAPI";
 
-import "../src/style/styles.css";
+import "../src/style/styles.scss";
 
 export const Slider = () => {
   const { result, FormikHandler, isLoaded } = useAPI();
@@ -41,7 +41,9 @@ export const Slider = () => {
     case true:
       return (
         <section className="container">
-          <a href="https://www.pexels.com">Photos provided by Pexels</a>
+          <a className="container__pexelsLink" href="https://www.pexels.com">
+            Photos provided by Pexels
+          </a>
           <article className="slider">
             <RiArrowLeftSLine
               className="slider__arrows slider__arrows--left"
@@ -83,9 +85,8 @@ export const Slider = () => {
                     alt={`PhotoID: ${obj.id}`}
                   />
 
-                  <p>
+                  <p className="slider__photographer">
                     {`Photographer: ${obj.photographer}`}
-                    <span></span>
                   </p>
                 </div>
               );

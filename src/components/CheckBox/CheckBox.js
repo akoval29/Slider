@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 
+import "./checkBoxStyle.scss";
+
 export const CheckBox = ({ nextSlide }) => {
   const [isChecked, setIsChecked] = useState(false);
 
@@ -20,13 +22,15 @@ export const CheckBox = ({ nextSlide }) => {
   return (
     <div className="checkBox">
       <input
+        className="checkBox__input"
         type="checkbox"
         id="switch"
         checked={isChecked}
         onChange={handleCheckboxChange}
-        className={`checkbox ${isChecked ? "checkBoxAct" : "checkBoxDisact"}`}
       ></input>
-      <label htmlFor="switch">Autoplay</label>
+      <label className="checkBox__label" htmlFor="switch">
+        Autoplay
+      </label>
     </div>
   );
 };
