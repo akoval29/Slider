@@ -22,7 +22,7 @@
     font-family: "Poppins", sans-serif;
     font-weight: bold;
     letter-spacing: 3px;
-    height: 40%;
+    height: 40px;
     width: 400px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     &:hover {
@@ -37,7 +37,7 @@
     justify-content: center;
     align-items: center;
     left: 43%;
-    top: 25%;
+    top: 15%;
     text-align: center;
     border: none;
     width: 125px;
@@ -81,7 +81,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 40%;
+    height: 40px;
     width: 13%;
     background-color: $main-color;
     color: $main-white;
