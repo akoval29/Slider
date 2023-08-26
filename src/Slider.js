@@ -6,6 +6,7 @@ import { Forms } from "./components/Forms/Forms";
 import { CheckBox } from "./components/CheckBox/CheckBox";
 import { useAPI } from "./hook/useAPI";
 
+import bg from "./lib/bg.jpeg";
 import "../src/style/styles.scss";
 
 export const Slider = () => {
@@ -28,10 +29,13 @@ export const Slider = () => {
   switch (isLoaded) {
     case "loading":
       return (
-        <section className="container">
+        <section className="app">
+          <img src={bg} className="app__bg" alt="bg-img" />
+
           <article className="slider">
             <span className="slider__spinner"></span>
           </article>
+
           <CheckBox />
           <Forms />
         </section>
@@ -40,11 +44,14 @@ export const Slider = () => {
       return <ErrorMessage />;
     case true:
       return (
-        <section className="container">
-          <a className="container__pexelsLink" href="https://www.pexels.com">
-            Photos provided by Pexels
-          </a>
+        <section className="app">
+          <img src={bg} className="app__bg" alt="bg-img" />
+
           <article className="slider">
+            <a className="slider__pexelsLink" href="https://www.pexels.com">
+              Photos provided by Pexels
+            </a>
+
             <RiArrowLeftSLine
               className="slider__arrows slider__arrows--left"
               onClick={prevSlide}
@@ -54,21 +61,21 @@ export const Slider = () => {
               onClick={nextSlide}
             />
 
-            <div className="slider__slide__dots">
+            <div className="dots">
               {Array.from({ length: result.length }).map((item, index) => (
                 <div
                   key={index}
                   onClick={() => moveDot(index)}
                   className={
                     current === index
-                      ? "slider__slide__dots--dot slider__slide__dots--dotActive"
-                      : "slider__slide__dots--dot"
+                      ? "dots__dot dots__dot--active"
+                      : "dots__dot"
                   }
                 ></div>
               ))}
             </div>
 
-            {result.map((obj, idx) => {
+            {result.map((obj, idx = 1) => {
               return (
                 <div
                   key={idx}
@@ -79,7 +86,7 @@ export const Slider = () => {
                   }
                 >
                   <img
-                    className="slider__slide__image"
+                    className="slider__image"
                     id={obj.id}
                     src={obj.src.landscape}
                     alt={`PhotoID: ${obj.id}`}

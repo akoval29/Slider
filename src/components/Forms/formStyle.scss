@@ -1,15 +1,26 @@
-@use "../../style/normalize.scss" as *;
+@use "../../style/variables.scss" as *;
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Oswald&display=swap");
 
-.formGroup {
+.forms {
   display: flex;
-  justify-content: center;
 
   &__row {
-    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 100%;
     flex-direction: row;
+    @media (max-width: 950px) {
+      flex-direction: column;
+    }
+  }
+
+  &__submitContainer {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    width: 180px;
   }
 
   &__input {
@@ -17,14 +28,18 @@
     border-bottom: 3px solid rgb(0, 0, 0);
     opacity: 0.7;
     text-align: center;
-    margin: 15px;
+    margin: 15px 0;
     font-size: 20px;
     font-family: "Poppins", sans-serif;
     font-weight: bold;
     letter-spacing: 3px;
     height: 40px;
+    // font-style: italic;
     width: 400px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    @media (max-width: 950px) {
+      width: 100%;
+    }
     &:hover {
       transform: scale(1.05);
       box-shadow: 0 10px 15px rgba(0, 0, 0, 0.5);
@@ -36,17 +51,16 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    left: 43%;
-    top: 15%;
+
     text-align: center;
     border: none;
     width: 125px;
-    height: 50px;
+    height: 40px;
     font-family: "Oswald", sans-serif;
     letter-spacing: 1px;
     font-size: 18px;
     border-radius: 10px;
-    color: $main-white;
+    color: lighten($main-color, 69%);
     background-color: $main-color;
     user-select: none;
     z-index: 10;
@@ -64,7 +78,7 @@
       height: 1px;
       border-style: solid;
       border-color: transparent;
-      border-width: 25px 35px;
+      border-width: 20px 35px;
       z-index: 9;
     }
     &--left:before {
@@ -82,9 +96,9 @@
     justify-content: center;
     align-items: center;
     height: 40px;
-    width: 13%;
+    min-width: 110px;
     background-color: $main-color;
-    color: $main-white;
+    color: lighten($main-color, 69%);
     font-family: "Poppins", sans-serif;
     font-weight: bold;
     letter-spacing: 1px;
