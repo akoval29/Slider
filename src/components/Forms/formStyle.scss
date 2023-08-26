@@ -71,7 +71,6 @@
     &--right:before {
       content: "";
       position: absolute;
-      // top: 0;
       width: 1px;
       height: 1px;
       border-style: solid;
@@ -84,30 +83,20 @@
       border-right-color: $main-color;
       @media (max-width: 1000px) {
         left: 0;
-        top: -40px;
-        // border-top-color: $main-color;
-        // bottom: -65px;
-        border-width: 20px 60px; /* Змінюємо ширину псевдоелементів */
+        border-width: 20px 60px;
         border-right-color: transparent;
-        // border-left-color: transparent;
-        // border-top-color: $main-color; /* Змінюємо колір псевдоелементів */
         border-bottom-color: $main-color;
       }
     }
-
     &--right:before {
       right: -65px;
       border-left-color: $main-color;
       @media (max-width: 1000px) {
         right: 0;
         bottom: -40px;
-        // border-bottom-color: $main-color;
-        // bottom: -65px;
-        border-width: 20px 60px; /* Змінюємо ширину псевдоелементів */
-        // border-right-color: transparent;
+        border-width: 20px 60px;
         border-left-color: transparent;
-        border-top-color: $main-color; /* Змінюємо колір псевдоелементів */
-        // border-bottom-color: $main-color;
+        border-top-color: $main-color;
       }
     }
   }
