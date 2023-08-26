@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { RiArrowRightSLine, RiArrowLeftSLine } from "react-icons/ri";
 
-import { ErrorMessage } from "./components/ErrorMessage";
+import { ErrorMessage } from "./components/Error/ErrorMessage";
 import { Forms } from "./components/Forms/Forms";
 import { CheckBox } from "./components/CheckBox/CheckBox";
 import { useAPI } from "./hook/useAPI";
@@ -32,8 +32,8 @@ export const Slider = () => {
           <article className="slider">
             <span className="slider__spinner"></span>
           </article>
-          <CheckBox nextSlide={nextSlide} />
-          <Forms FormikHandler={FormikHandler} />
+          <CheckBox />
+          <Forms />
         </section>
       );
     case false:

@@ -1,0 +1,26 @@
+.error {
+  text-align: center;
+  &__img {
+    display: block;
+    width: 1000px;
+    height: 700px;
+    object-fit: contain;
+    margin: 0 auto;
+    border-radius: 20px;
+  }
+  &__p {
+    margin: 10px;
+    font-size: 30px;
+    font-weight: bold;
+    color: #8d0515;
+  }
+  &__btn {
+    padding: 10px 20px;
+    font-size: 18px;
+    background-color: #8d0515;
+    color: white;
+    border-radius: 10px;
+    margin-top: 20px;
+    cursor: pointer;
+  }
+}
