@@ -82,6 +82,7 @@
       left: -65px;
       border-right-color: $main-color;
       @media (max-width: 1000px) {
+        top: -40px;
         left: 0;
         border-width: 20px 60px;
         border-right-color: transparent;
