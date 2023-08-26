@@ -11,7 +11,7 @@
     align-items: center;
     width: 100%;
     flex-direction: row;
-    @media (max-width: 950px) {
+    @media (max-width: 1000px) {
       flex-direction: column;
     }
   }
@@ -34,10 +34,9 @@
     font-weight: bold;
     letter-spacing: 3px;
     height: 40px;
-    // font-style: italic;
     width: 400px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    @media (max-width: 950px) {
+    @media (max-width: 1000px) {
       width: 100%;
     }
     &:hover {
@@ -51,7 +50,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-
     text-align: center;
     border: none;
     width: 125px;
@@ -73,7 +71,7 @@
     &--right:before {
       content: "";
       position: absolute;
-      top: 0;
+      // top: 0;
       width: 1px;
       height: 1px;
       border-style: solid;
@@ -84,10 +82,33 @@
     &--left:before {
       left: -65px;
       border-right-color: $main-color;
+      @media (max-width: 1000px) {
+        left: 0;
+        top: -40px;
+        // border-top-color: $main-color;
+        // bottom: -65px;
+        border-width: 20px 60px; /* Змінюємо ширину псевдоелементів */
+        border-right-color: transparent;
+        // border-left-color: transparent;
+        // border-top-color: $main-color; /* Змінюємо колір псевдоелементів */
+        border-bottom-color: $main-color;
+      }
     }
+
     &--right:before {
       right: -65px;
       border-left-color: $main-color;
+      @media (max-width: 1000px) {
+        right: 0;
+        bottom: -40px;
+        // border-bottom-color: $main-color;
+        // bottom: -65px;
+        border-width: 20px 60px; /* Змінюємо ширину псевдоелементів */
+        // border-right-color: transparent;
+        border-left-color: transparent;
+        border-top-color: $main-color; /* Змінюємо колір псевдоелементів */
+        // border-bottom-color: $main-color;
+      }
     }
   }
 
