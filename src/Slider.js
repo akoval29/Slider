@@ -75,7 +75,7 @@ export const Slider = () => {
               ))}
             </div>
 
-            {result.map((obj, idx) => {
+            {result.map((obj, idx = 1) => {
               return (
                 <div
                   key={idx}

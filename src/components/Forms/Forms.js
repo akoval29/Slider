@@ -4,7 +4,7 @@ import "./formStyle.scss";
 
 export const Forms = ({ FormikHandler }) => {
   return (
-    <section className="formGroup">
+    <section className="forms">
       <Formik
         initialValues={{ inputSearch: "", inputAmount: "" }}
         validate={(values) => {
@@ -31,42 +31,44 @@ export const Forms = ({ FormikHandler }) => {
         }}
       >
         {({ isSubmitting }) => (
-          <Form className="formGroup__row">
+          <Form className="forms__row">
             <Field
-              className="formGroup__input"
+              className="forms__input"
               type="inputSearch"
               name="inputSearch"
               tabIndex={0}
               placeholder="Type something ..."
             />
 
-            <ErrorMessage
-              className="formGroup__error formGroup__error--left"
-              name="inputSearch"
-              component="div"
-            />
+            <div className="forms__submitContainer">
+              <ErrorMessage
+                className="forms__error forms__error--left"
+                name="inputSearch"
+                component="div"
+              />
 
-            <button
-              className="formGroup__button"
-              type="submit"
-              disabled={isSubmitting}
-              tabIndex={0}
-            >
-              search
-            </button>
+              <button
+                className="forms__button"
+                type="submit"
+                disabled={isSubmitting}
+                tabIndex={0}
+              >
+                search
+              </button>
+
+              <ErrorMessage
+                className="forms__error forms__error--right"
+                name="inputAmount"
+                component="div"
+              />
+            </div>
 
             <Field
-              className="formGroup__input"
+              className="forms__input"
               type="inputAmount"
               name="inputAmount"
               placeholder="How many photos ?"
               tabIndex={0}
-            />
-
-            <ErrorMessage
-              className="formGroup__error formGroup__error--right"
-              name="inputAmount"
-              component="div"
             />
           </Form>
         )}
