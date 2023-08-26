@@ -1,11 +1,15 @@
+import React, { useState } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 
 import "./formStyle.scss";
 
 export const Forms = ({ FormikHandler }) => {
+  const [inputValues, setInputValues] = useState({});
+
   return (
     <section className="forms">
       <Formik
+        // initialValues={inputValues}
         initialValues={{ inputSearch: "", inputAmount: "" }}
         validate={(values) => {
           const errors = {};
@@ -25,20 +29,26 @@ export const Forms = ({ FormikHandler }) => {
           }
           return errors;
         }}
-        onSubmit={(values, { setSubmitting }) => {
+        onSubmit={(values, { setSubmitting, resetForm }) => {
           FormikHandler(values);
+          setInputValues(values);
+          // console.log(values);
+          console.log(inputValues);
+          resetForm(); // Очистити форму
           setSubmitting(false);
         }}
       >
-        {({ isSubmitting }) => (
+        {({ isSubmitting, values }) => (
           <Form className="forms__row">
-            <Field
-              className="forms__input"
-              type="inputSearch"
-              name="inputSearch"
-              tabIndex={0}
-              placeholder="Type something ..."
-            />
+            <div className="forms__wrap">
+              <Field
+                className="forms__input"
+                type="inputSearch"
+                name="inputSearch"
+                tabIndex={0}
+                placeholder="Type something ..."
+              />
+            </div>
 
             <div className="forms__submitContainer">
               <ErrorMessage
@@ -63,13 +73,15 @@ export const Forms = ({ FormikHandler }) => {
               />
             </div>
 
-            <Field
-              className="forms__input"
-              type="inputAmount"
-              name="inputAmount"
-              placeholder="How many photos ?"
-              tabIndex={0}
-            />
+            <div className="forms__wrap">
+              <Field
+                className="forms__input"
+                type="inputAmount"
+                name="inputAmount"
+                placeholder="How many photos ?"
+                tabIndex={0}
+              />
+            </div>
           </Form>
         )}
       </Formik>
