@@ -1,4 +1,6 @@
-@use "../../style/normalize.scss" as *;
+@use "../../style/variables.scss" as *;
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Oswald&display=swap");
 
 .formGroup {
   display: flex;
@@ -46,7 +48,7 @@
     letter-spacing: 1px;
     font-size: 18px;
     border-radius: 10px;
-    color: $main-white;
+    color: lighten($main-color, 69%);
     background-color: $main-color;
     user-select: none;
     z-index: 10;
@@ -84,7 +86,7 @@
     height: 40px;
     width: 13%;
     background-color: $main-color;
-    color: $main-white;
+    color: lighten($main-color, 69%);
     font-family: "Poppins", sans-serif;
     font-weight: bold;
     letter-spacing: 1px;
