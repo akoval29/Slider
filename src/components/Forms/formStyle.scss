@@ -34,7 +34,6 @@
     font-weight: bold;
     letter-spacing: 3px;
     height: 40px;
-    // font-style: italic;
     width: 400px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     @media (max-width: 950px) {
@@ -51,7 +50,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-
     text-align: center;
     border: none;
     width: 125px;
@@ -68,7 +66,6 @@
       transform: scale(1.05);
       transition: transform 0.3s ease;
     }
-
     &--left:before,
     &--right:before {
       content: "";
