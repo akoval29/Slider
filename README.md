@@ -4,6 +4,6 @@
 - This app works with API [pexels.com](https://www.pexels.com/api/).
 - Mobile responce
 ## Technologies Used
-- **React, axios**
-- **Addition libraries** - Formik, axios, React icons
+- **React**
+- **Addition libraries** - Formik, axios, react icons
 - **SCSS** 
