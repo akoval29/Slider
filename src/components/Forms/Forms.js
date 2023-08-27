@@ -32,9 +32,7 @@ export const Forms = ({ FormikHandler }) => {
         onSubmit={(values, { setSubmitting, resetForm }) => {
           FormikHandler(values);
           setInputValues(values);
-          // console.log(values);
-          console.log(inputValues);
-          resetForm(); // Очистити форму
+          resetForm();
           setSubmitting(false);
         }}
       >
