@@ -11,7 +11,7 @@ export const useAPI = () => {
   const FormikHandler = (values) => {
     setSearch(values.inputSearch);
     setPerPage(values.inputAmount);
-    setIsLoaded("loading"); // for spinner
+    setIsLoaded("loading");
   };
 
   // Get data
