@@ -4,12 +4,14 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import "./formStyle.scss";
 
 export const Forms = ({ FormikHandler }) => {
-  const [inputValues, setInputValues] = useState({});
+  const [current, setCurrent] = useState({
+    inputSearch: "cats",
+    inputAmount: 15,
+  });
 
   return (
     <section className="forms">
       <Formik
-        // initialValues={inputValues}
         initialValues={{ inputSearch: "", inputAmount: "" }}
         validate={(values) => {
           const errors = {};
@@ -31,7 +33,7 @@ export const Forms = ({ FormikHandler }) => {
         }}
         onSubmit={(values, { setSubmitting, resetForm }) => {
           FormikHandler(values);
-          setInputValues(values);
+          setCurrent(values);
           resetForm();
           setSubmitting(false);
         }}
@@ -44,7 +46,7 @@ export const Forms = ({ FormikHandler }) => {
                 type="inputSearch"
                 name="inputSearch"
                 tabIndex={0}
-                placeholder="Type something ..."
+                placeholder={`Type something ... (${current.inputSearch})`}
               />
             </div>
 
@@ -76,7 +78,7 @@ export const Forms = ({ FormikHandler }) => {
                 className="forms__input"
                 type="inputAmount"
                 name="inputAmount"
-                placeholder="How many photos ?"
+                placeholder={`Type something ... (${current.inputAmount})`}
                 tabIndex={0}
               />
             </div>

@@ -10,7 +10,7 @@ import bg from "./lib/bg.jpeg";
 import "../src/style/styles.scss";
 
 export const Slider = () => {
-  const { result, FormikHandler, isLoaded } = useAPI();
+  const { photos, FormikHandler, isLoaded } = useAPI();
   const [current, setCurrent] = useState(0); // current slide
 
   // Dots changes slides
@@ -20,10 +20,10 @@ export const Slider = () => {
 
   // Navigation
   const nextSlide = () => {
-    setCurrent(current === result.length - 1 ? 0 : current + 1);
+    setCurrent(current === photos.length - 1 ? 0 : current + 1);
   };
   const prevSlide = () => {
-    setCurrent(current === 0 ? result.length - 1 : current - 1);
+    setCurrent(current === 0 ? photos.length - 1 : current - 1);
   };
 
   switch (isLoaded) {
@@ -62,7 +62,7 @@ export const Slider = () => {
             />
 
             <div className="dots">
-              {Array.from({ length: result.length }).map((item, index) => (
+              {Array.from({ length: photos.length }).map((item, index) => (
                 <div
                   key={index}
                   onClick={() => moveDot(index)}
@@ -75,7 +75,7 @@ export const Slider = () => {
               ))}
             </div>
 
-            {result.map((obj, idx = 1) => {
+            {photos.map((obj, idx) => {
               return (
                 <div
                   key={idx}
