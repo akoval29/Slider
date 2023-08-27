@@ -2,16 +2,16 @@ import { useState, useEffect, useCallback } from "react";
 import axios from "axios";
 
 export const useAPI = () => {
-  const [search, setSearch] = useState("sport car");
+  const [search, setSearch] = useState("cats");
   const [perPage, setPerPage] = useState(15);
-  const [result, setResult] = useState([]);
+  const [photos, setphotos] = useState([]);
   const [isLoaded, setIsLoaded] = useState("loading");
 
   // connect Formik to axios
   const FormikHandler = (values) => {
     setSearch(values.inputSearch);
     setPerPage(values.inputAmount);
-    setIsLoaded("loading"); // for spinner
+    setIsLoaded("loading");
   };
 
   // Get data
@@ -25,7 +25,7 @@ export const useAPI = () => {
         headers: { Authorization: ACCESS_TOKEN },
       });
       if (data.photos.length > 0) {
-        setResult(data.photos);
+        setphotos(data.photos);
         setIsLoaded(true);
       } else {
         setIsLoaded(false);
@@ -40,5 +40,5 @@ export const useAPI = () => {
     GetData();
   }, [GetData]);
 
-  return { result, isLoaded, FormikHandler };
+  return { photos, isLoaded, FormikHandler };
 };

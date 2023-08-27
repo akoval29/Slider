@@ -13,12 +13,12 @@
     text-indent: -9999px;
     width: 200px;
     height: 100px;
-    background: $main-color;
+    background: $theme-color;
     display: block;
     border-radius: 100px;
     position: relative;
     transform: scale(0.45);
-    box-shadow: inset 0px 0px 20px 5px darken($main-color, 10%);
+    box-shadow: inset 0px 0px 20px 5px darken($theme-color, 10%);
     transition: background-color 0.3s;
     &:after {
       content: "";
@@ -27,7 +27,7 @@
       left: 5px;
       width: 90px;
       height: 90px;
-      background: lighten($main-color, 69%);
+      background: lighten($theme-color, 69%);
       border-radius: 100px;
       transition: 0.3s;
     }

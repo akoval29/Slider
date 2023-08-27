@@ -1,8 +1,14 @@
+import React, { useState } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 
 import "./formStyle.scss";
 
 export const Forms = ({ FormikHandler }) => {
+  const [current, setCurrent] = useState({
+    inputSearch: "cats",
+    inputAmount: 15,
+  });
+
   return (
     <section className="forms">
       <Formik
@@ -25,20 +31,24 @@ export const Forms = ({ FormikHandler }) => {
           }
           return errors;
         }}
-        onSubmit={(values, { setSubmitting }) => {
+        onSubmit={(values, { setSubmitting, resetForm }) => {
           FormikHandler(values);
+          setCurrent(values);
+          resetForm();
           setSubmitting(false);
         }}
       >
-        {({ isSubmitting }) => (
+        {({ isSubmitting, values }) => (
           <Form className="forms__row">
-            <Field
-              className="forms__input"
-              type="inputSearch"
-              name="inputSearch"
-              tabIndex={0}
-              placeholder="Type something ..."
-            />
+            <div className="forms__wrap">
+              <Field
+                className="forms__input"
+                type="inputSearch"
+                name="inputSearch"
+                tabIndex={0}
+                placeholder={`Type something ... (${current.inputSearch})`}
+              />
+            </div>
 
             <div className="forms__submitContainer">
               <ErrorMessage
@@ -63,13 +73,15 @@ export const Forms = ({ FormikHandler }) => {
               />
             </div>
 
-            <Field
-              className="forms__input"
-              type="inputAmount"
-              name="inputAmount"
-              placeholder="How many photos ?"
-              tabIndex={0}
-            />
+            <div className="forms__wrap">
+              <Field
+                className="forms__input"
+                type="inputAmount"
+                name="inputAmount"
+                placeholder={`Type something ... (${current.inputAmount})`}
+                tabIndex={0}
+              />
+            </div>
           </Form>
         )}
       </Formik>

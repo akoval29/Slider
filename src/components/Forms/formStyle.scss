@@ -11,8 +11,9 @@
     align-items: center;
     width: 100%;
     flex-direction: row;
-    @media (max-width: 950px) {
+    @media (max-width: 1000px) {
       flex-direction: column;
+      width: 280px;
     }
   }
 
@@ -20,9 +21,12 @@
     position: relative;
     display: flex;
     justify-content: center;
-    width: 180px;
+    width: 160px;
   }
 
+  &__wrap {
+    position: relative;
+  }
   &__input {
     border: none;
     border-bottom: 3px solid rgb(0, 0, 0);
@@ -36,7 +40,12 @@
     height: 40px;
     width: 400px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    @media (max-width: 950px) {
+    &::placeholder {
+      color: #999;
+      font-style: italic;
+      text-transform: none;
+    }
+    @media (max-width: 1000px) {
       width: 100%;
     }
     &:hover {
@@ -58,10 +67,10 @@
     letter-spacing: 1px;
     font-size: 18px;
     border-radius: 10px;
-    color: lighten($main-color, 69%);
-    background-color: $main-color;
+    color: lighten($theme-color, 69%);
+    background-color: $theme-color;
     user-select: none;
-    z-index: 10;
+    z-index: 2;
     &:hover {
       transform: scale(1.05);
       transition: transform 0.3s ease;
@@ -70,21 +79,34 @@
     &--right:before {
       content: "";
       position: absolute;
-      top: 0;
       width: 1px;
       height: 1px;
       border-style: solid;
       border-color: transparent;
       border-width: 20px 35px;
-      z-index: 9;
+      z-index: 2;
     }
     &--left:before {
       left: -65px;
-      border-right-color: $main-color;
+      border-right-color: $theme-color;
+      @media (max-width: 1000px) {
+        top: -40px;
+        left: 0;
+        border-width: 20px 60px;
+        border-right-color: transparent;
+        border-bottom-color: $theme-color;
+      }
     }
     &--right:before {
       right: -65px;
-      border-left-color: $main-color;
+      border-left-color: $theme-color;
+      @media (max-width: 1000px) {
+        right: 0;
+        bottom: -40px;
+        border-width: 20px 60px;
+        border-left-color: transparent;
+        border-top-color: $theme-color;
+      }
     }
   }
 
@@ -94,23 +116,23 @@
     align-items: center;
     height: 40px;
     min-width: 110px;
-    background-color: $main-color;
-    color: lighten($main-color, 69%);
+    background-color: $theme-color;
+    color: lighten($theme-color, 69%);
     font-family: "Poppins", sans-serif;
     font-weight: bold;
     letter-spacing: 1px;
     font-size: 18px;
     border-radius: 10px;
-    box-shadow: inset 0px 0px 20px 5px darken($main-color, 10%);
+    box-shadow: inset 0px 0px 20px 5px darken($theme-color, 10%);
     cursor: pointer;
     &:hover {
       transform: scale(1.05);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
-      box-shadow: inset 0px 0px 20px 5px darken($main-color, 10%),
+      box-shadow: inset 0px 0px 20px 5px darken($theme-color, 10%),
         0 5px 10px rgba(0, 0, 0, 0.5);
     }
     &:active {
-      background-color: darken($main-color, 5%);
+      background-color: darken($theme-color, 5%);
     }
   }
 }
