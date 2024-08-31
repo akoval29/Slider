@@ -46,7 +46,7 @@ export const Forms = ({ FormikHandler }) => {
                 type="inputSearch"
                 name="inputSearch"
                 tabIndex={0}
-                placeholder={`Type something ... (${current.inputSearch})`}
+                placeholder={`subject ... (${current.inputSearch})`}
               />
             </div>
 
@@ -78,7 +78,7 @@ export const Forms = ({ FormikHandler }) => {
                 className="forms__input"
                 type="inputAmount"
                 name="inputAmount"
-                placeholder={`Type something ... (${current.inputAmount})`}
+                placeholder={`how many ... (${current.inputAmount})`}
                 tabIndex={0}
               />
             </div>
